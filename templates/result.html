@@ -1,0 +1,43 @@
+
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result - Hematovision</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+        img {
+            max-width: 300px;
+            margin-top: 20px;
+        }
+        .result-box {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            background-color: #f0fff0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🩸 Hematovision Result</h1>
+
+    <div class="result-box">
+        <h2>Predicted Class:</h2>
+        <h3>{{ result }}</h3>
+
+        {% if filename %}
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        {% endif %}
+    </div>
+
+    <br><br>
+    <a href="/" style="text-decoration:none;">
+        🔁 Try Another Image
+    </a>
+</body>
+</html>
